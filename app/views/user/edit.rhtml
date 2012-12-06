@@ -1,0 +1,20 @@
+<%= start_form_tag :action=> "edit" %>
+
+<div title="Edit Account" id="editform" class="form">
+  <h3>Edit Account</h3>
+  
+ <label for="user_firstName">First Name:</label><br/>
+  <%= text_field "user", "firstName", :size => 30, :value => @user.firstName %><br/>
+ <label for="user_lastName">Last Name:</label><br/>
+  <%= text_field "user", "lastName", :size => 30, :value => @user.lastName %><br/>
+ <label for="user_city">City:</label><br/>
+  <%= text_field "user", "city", :size => 30, :value => @user.city %><br/>
+ <label for="user_state">State:</label><br/>
+  <%= text_field "user", "state", :size => 30, :value =>  @user.state %><br/>
+ <label for="user_email">E-Mail:</label><br/>
+  <%= text_field "user", "email", :size => 30, :value =>  @user.email %><br/>
+
+<input type="submit" value="Submit &#187;" class="primary" />
+
+<%= end_form_tag %>
+

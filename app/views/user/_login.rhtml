@@ -1,0 +1,36 @@
+<div id="userinfo">
+<% if !@session['user'].nil?  %>
+
+Welcome, <%= @session['user'].firstName %><br>
+<%=link_to "Change Password", :action => "change_password", :id => @session['user'].id  %>
+<%=link_to "Edit My Info", :action => "edit", :id => @session['user'].id  %><br/>
+<%=link_to "log out", :action => "logout" %>
+<%=link_to_remote "My Wishes", :update=>"left", :url=>{:action => "list", :id => @session['user'].id} %>
+
+<% else %>
+
+<%= start_form_tag :action=> "login" %>   
+    <% if @message %>
+      <div id="message"><%= @message %></div>
+    <% end %>
+    <div>
+      <label for="user_login">Login:</label>
+      <input type="text" name="user_login" id="user_login" size="15" value=""/>
+      <br/>
+      <label for="user_password">Password:</label>
+      <input type="password" name="user_password" id="user_password" size="15"/>
+      <br/>
+      <label for="remember_me">Remember me</label>
+      <input type="checkbox" name="remember_me" id="remember_me" value="1"/>
+    </div>
+    <br/>
+    <div id="break">
+      <%=link_to "sign up", :action => "signup" %> or  
+      <input type="submit" name="login" value="Login &#187;" />
+    </div>
+ 
+<%= end_form_tag %>
+
+
+<% end %>
+</div>

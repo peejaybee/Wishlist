@@ -1,0 +1,24 @@
+<h1>Listing wishes</h1>
+
+<table>
+  <tr>
+<% for column in Wish.content_columns %>
+    <th><%= column.human_name %></th>
+<% end %>
+  </tr>
+  
+<% for wish in @wishes %>
+  <tr>
+  <% for column in Wish.content_columns %>
+    <td><%=h wish.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => wish.id %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => wish.id %></td>
+    <td><%= link_to 'Destroy', :action => 'destroy', :id => wish.id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New wish', :action => 'new' %>

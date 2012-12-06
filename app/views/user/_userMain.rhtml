@@ -1,0 +1,17 @@
+<% @thisIsMe = @session['user'].nil? ? false : @session['user'].id == userMain.id %>
+<% if userMain.nil?  %>
+  <div id="wishes">
+  Welcome to Gimme Gimme Gimme.<br/>
+  Want something?  Enter it on your wishlist and tell everybody you know to take a look!<br/>
+  The site is a bit rough right now, but it will get better as time goes on.
+  </div>
+<% else %>
+  <div id="wishes">
+  <%= render_partial "wish_list", userMain %>
+  </div>
+  <% if @thisIsMe %>
+    <div id="purchases">
+    <%= render_partial "purchase_list", userMain %>
+    </div>
+  <% end %>
+<% end %>

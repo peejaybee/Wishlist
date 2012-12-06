@@ -1,0 +1,30 @@
+      <% if wish_list.wishes.size > 0 %>
+        <% if @thisIsMe %>
+          <h3>My Wishes</h3>
+        <% else %>
+          <h3>Wishlist for <%= wish_list.firstName + " " + wish_list.lastName %> </h3>
+        <% end %>
+      
+        <table>
+        <tr>
+        <th>Item</th>
+        <th>Cost</th>
+        <th>Number Wanted</th>
+        <th>Where Found</th>
+        </tr>
+        <% wish_list.wishes.each do |wish| %>
+          <% if @thisIsMe || wish.itemsRemaining > 0 %>
+            <tr id="w<%=wish.id%>">
+            <td><%= @thisIsMe ? link_to( wish.itemName, { :controller =>"wish", :action => "edit", :id=> wish.id}, :popup => ['View Wish','height=500, width=400']  ) : link_to( wish.itemName, { :controller =>"wish", :action => "show", :wish_id=> wish.id, :id=>@session['user'].id }, :popup => ['View Wish','height=300, width=200'] ) %>
+            <td class="numeric"><%= wish.formattedItemPrice %></td>
+            <td class="numeric"><%= wish.itemsRemaining %></td>
+            <td><%= wish.whereFound %></td>
+            <td><%= @thisIsMe ? link_to_remote( image_tag("kill"), :loading => "status('w" + wish.id.to_s + "')" , :success=> "new Effect.Puff('w" + wish.id.to_s + "')",  :url => { :controller =>"wish", :action => "remove", :id=> wish.id}, :confirm=>"Are you sure?") : "" %></td>
+            </tr>
+          <% end %>
+        <% end %>
+        </table>
+      <% else %>
+        <%= @thisIsMe ? "You don't " : wish_list.firstName + " " + wish_list.lastName + " doesn't " %> want anything, apparently. <br/>
+      <%end%>
+      <%= @thisIsMe ? link_to ("Add a new wish", {:action=>"add_wish", :id=>wish_list.id}, :popup => ['View Wish','height=500, width=400'] )  : "" %>

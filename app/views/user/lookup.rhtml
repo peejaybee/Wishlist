@@ -1,0 +1,25 @@
+<%= start_form_tag :action=> "lookup" %>
+
+<div title="Look Up User" id="lookupform" class="form">
+  <h3>Look Up User</h3>
+  
+ <label>Login</label><br/>
+  <%= text_field_tag "loginid", "", :size => 30 %><br/>
+
+<input type="submit" value="Submit &#187;" class="primary" />
+<%= end_form_tag %>
+
+<hr>
+
+<% if ! @users.nil? and @users.size > 0 %>
+<table>
+<% @users.each do |user| %>
+<tr>
+<td><%= link_to user.firstName + " " + user.lastName, :action => "list_wishes", :id => user.id %></td>
+<td><%= user.city + ", " + user.state %></td>
+</tr>
+<% end %>
+</table>
+<% else %>
+Sorry, couldn't find anybody
+<%end%>

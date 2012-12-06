@@ -1,0 +1,24 @@
+<% if purchase_list.purchases.size > 0 %>
+<h3>My Purchases</h3>
+  <table>
+  <th>Who For</th>
+  <th>Item</th>
+  <th>Number Bought</th>
+  <th> </th>
+  <th> </th>
+  <th> </th>
+  <% purchase_list.purchases.each do |purchase| %>
+    
+    <tr id="p<%=purchase.id%>">
+    <td><%= purchase.wish.user.firstName %> <%= purchase.wish.user.lastName %></td>
+    <td><%= purchase.wish.itemName %></td>
+    <td class="numeric"><%= purchase.numberBought%></td>
+    <td><%= link_to "e", { :controller =>"purchase", :action => "edit", :id=> purchase.id} %></td>
+    <td><%= link_to_remote "r", :loading => "status(p" + purchase.id.to_s + ")" ,:update => "p" + purchase.id.to_s, :url=>{ :controller =>"purchase", :action => "remove", :id=> purchase.id}, :confirm=>"are you sure?" %></td>
+    <td><%= link_to "c", { :controller =>"purchase", :action => "confirm", :id=> purchase.id}, :confirm=>"are you sure?" %></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  You haven't made any purchases yet.
+<%end%>

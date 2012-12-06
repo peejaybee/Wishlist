@@ -1,0 +1,18 @@
+<h1>New </h1>
+
+<%= error_messages_for 'wish' %>
+<!--[form:wish]-->
+<%= start_form_tag :action => 'create' %>
+<%= hidden_field 'wish', 'id' %>
+<%= hidden_field 'wish', 'user_id' %>
+<p><label for="wish_wishDate">Wishdate</label><br /><%= datetime_select 'wish', 'wishDate'  %></p>
+<p><label for="wish_itemName">Itemname</label><br /><%= text_field 'wish', 'itemName'  %></p>
+<p><label for="wish_numberWanted">Numberwanted</label><br /><%= text_field 'wish', 'numberWanted'  %></p>
+<p><label for="wish_itemPrice">Itemprice</label><br /><%= text_field 'wish', 'itemPrice'  %></p>
+<p><label for="wish_whereFound">Wherefound</label><br /><%= text_field 'wish', 'whereFound'  %></p>
+<input type="submit" value="Make a wish" />
+<%= end_form_tag %>
+<!--[eoform:wish]-->
+
+
+<%= link_to 'Back', {:controller=> 'user', :action => 'list', :id => @user.id} %>

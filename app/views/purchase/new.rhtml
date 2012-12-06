@@ -1,0 +1,16 @@
+<h1>New purchase</h1>
+
+<%= error_messages_for 'purchase' %>
+<!--[form:purchase]-->
+<%= start_form_tag :action => 'create' %>
+<%= hidden_field 'purchase', 'id' %>
+<p><label for="purchase_numberBought">Numberbought</label><br /><%= text_field 'purchase', 'numberBought'  %></p>
+<p><label for="purchase_purchaseConcluded">Purchaseconcluded</label><br /><%= text_field 'purchase', 'purchaseConcluded'  %></p>
+<p><label for="purchase_purchaseDate">Purchasedate</label><br /><%= datetime_select 'purchase', 'purchaseDate'  %></p>
+<p><label for="purchase_visible">Visible</label><br /><%= text_field 'purchase', 'visible'  %></p>
+<input type="submit" value="Create" />
+<%= end_form_tag %>
+<!--[eoform:purchase]-->
+
+
+<%= link_to 'Back', :action => 'list' %>

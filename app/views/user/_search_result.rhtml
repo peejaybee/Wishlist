@@ -1,0 +1,4 @@
+<tr>
+<td><%= link_to_remote search_result.firstName + " " + search_result.lastName, :update=>"left", :url=>{:action => "list", :id => search_result.id} %></td>
+<td><%= search_result.city + ", " + search_result.state %></td>
+</tr>

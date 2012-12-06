@@ -1,0 +1,26 @@
+<%= start_form_tag :action=> "search" %>
+
+<div title="Find User" id="searchform" class="form">
+  <h3>Find User</h3>
+  
+ <label>First Name:</label><br/>
+  <%= text_field_tag "firstname", "", :size => 30 %><br/>
+ <label>Last Name:</label><br/>
+  <%= text_field_tag "lastname", "", :size => 30 %><br/>
+ <label>City:</label><br/>
+  <%= text_field_tag "city", "", :size => 30 %><br/>
+ <label>State:</label><br/>
+  <%= text_field_tag "state", "", :size => 30 %><br/>
+
+<input type="submit" value="Submit &#187;" class="primary" />
+<%= end_form_tag %>
+
+<hr>
+
+<% if ! @users.nil? and @users.size > 0 %>
+<table>
+<%= render_partial_collection 'search_result',@users %> 
+</table>
+<% else %>
+Sorry, couldn't find anybody
+<%end%>

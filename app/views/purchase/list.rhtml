@@ -1,0 +1,24 @@
+<h1>Listing purchases</h1>
+
+<table>
+  <tr>
+<% for column in Purchase.content_columns %>
+    <th><%= column.human_name %></th>
+<% end %>
+  </tr>
+  
+<% for purchase in @purchases %>
+  <tr>
+  <% for column in Purchase.content_columns %>
+    <td><%=h purchase.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => purchase.id %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => purchase.id %></td>
+    <td><%= link_to 'Destroy', :action => 'destroy', :id => purchase.id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New purchase', :action => 'new' %>

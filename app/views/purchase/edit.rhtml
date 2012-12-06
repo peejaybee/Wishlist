@@ -1,0 +1,14 @@
+<h1>Editing purchase</h1>
+
+<%= error_messages_for 'purchase' %>
+<!--[form:purchase]-->
+<%= start_form_tag :action => 'edit' %>
+<%= hidden_field 'purchase', 'id' %>
+<p><label for="purchase_numberBought">Number bought</label><br /><%= text_field 'purchase', 'numberBought'  %></p>
+<input type="submit" value="Update" />
+<%= end_form_tag %>
+<!--[eoform:purchase]-->
+
+
+<%= link_to 'Show', :action => 'show', :id => @purchase.id %> |
+<%= link_to 'Back', :action => 'list' %>

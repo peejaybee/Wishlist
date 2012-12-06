@@ -1,0 +1,16 @@
+<h1>Editing wish</h1>
+
+<%= error_messages_for 'wish' %>
+<!--[form:wish]-->
+<%= start_form_tag :action => 'edit_new' %>
+<%= hidden_field 'wish', 'id' %>
+<p><label for="wish_itemName">What do you want?</label><br /><%= text_field 'wish', 'itemName'  %></p>
+<p><label for="wish_numberWanted">How many do you want?</label><br /><%= text_field 'wish', 'numberWanted'  %></p>
+<p><label for="wish_itemPrice">How much does it cost?</label><br /><%= text_field 'wish', 'itemPrice'  %></p>
+<p><label for="wish_whereFound">Where can it be found?</label><br /><%= text_field 'wish', 'whereFound'  %></p>
+<p><label for="wish_notes">What else do you want people who might get this for you to know?</label><br /><%= text_field 'wish', 'notes'  %></p>
+<input type="submit" value="Update" />
+<%= end_form_tag %>
+<!--[eoform:wish]-->
+
+

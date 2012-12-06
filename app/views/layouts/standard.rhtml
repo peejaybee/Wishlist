@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Wishlist: <%= @page_title %></title>
+<link rel="stylesheet" type="text/css"
+href="/stylesheets/wishlistapp.css" />
+<%= javascript_include_tag "prototype" %>
+<%= javascript_include_tag "effects" %>
+<script type="text/javascript">
+//<![CDATA[
+function status(node)
+{
+  if (!node) return false;
+  if (typeof node == 'string')
+    node = document.getElementById(node);
+  if (node) node.innerHTML = 'Removing ..' + node.innerHTML;
+}
+
+//]]>
+</script>
+</head>
+<body>
+<div id="topbar">
+<div id="login">
+<%= render_partial "login" %>
+</div>
+<div id="head">
+<H3>Gimme, gimme, gimme!</H3>
+</div>
+</div> <!--topbar-->
+<%= @content_for_layout %>
+<div id="footer">
+Copyright 2005 Phillip J. Birmingham</div>
+</body>
+</html>

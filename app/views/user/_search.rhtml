@@ -1,0 +1,20 @@
+<div>
+<%= form_remote_tag :update=> "searchResult", :url=> {:action=> "search"} %>
+<h3>Search</h3>
+ <label>First Name:</label>
+  <%= text_field_tag "firstname", "", :size => 15 %>
+  <br/>
+ <label>Last Name:</label>
+  <%= text_field_tag "lastname", "", :size => 15 %>
+  <br/>
+ <label>City:</label>
+  <%= text_field_tag "city", "", :size => 15 %>
+  <br/>
+ <label>State:</label>
+  <%= text_field_tag "state", "", :size => 15 %>
+  <br/>
+  <div id="break">
+    <input type="submit" value="Submit &#187;" />
+  </div>
+<%= end_form_tag %>
+</div>

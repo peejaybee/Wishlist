@@ -1,0 +1,50 @@
+body
+{
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+input
+{
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  float: right;
+}
+label
+{
+	font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  float: left;
+  clear: right;
+}
+
+#login
+{
+ 	width: 25%;
+  float: right;
+  clear: left;
+}
+#login.a
+{
+  font-size: 10px;
+}
+#right
+{
+  width: 25%;
+  float: right;
+  clear: left;
+}
+#left
+{
+}
+#contentpane
+{
+  float: left;
+}
+#footer
+{
+  clear: both;
+}
+#break
+{
+  clear: both;
+}
